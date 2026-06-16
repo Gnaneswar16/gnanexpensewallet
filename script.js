@@ -1,4 +1,4 @@
-const api = "SCRIPT API";
+const api = "https://script.google.com/macros/s/AKfycbxqf1geq7Y-j1-Rtfmw1EMXMsG0z2ZPLtyao01WGwrem9uYPLIws9YxpsFLNbnCFkzt/exec";
 
 let expenseChart, trendChart, categoryChart;
 
