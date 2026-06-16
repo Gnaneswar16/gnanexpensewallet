@@ -1,0 +1,360 @@
+/* ===============================
+   RESET
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Playfair Display', serif;
+  transition: all 0.25s ease;
+}
+
+/* ===============================
+   BODY
+================================= */
+
+body {
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+body.dark {
+  background: #121212;
+}
+
+/* ===============================
+   APP CONTAINER
+================================= */
+
+.app {
+  width: 100%;
+  max-width: 430px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(20px);
+  border-radius: 28px;
+  padding: 25px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+body.dark .app {
+  background: #1e1e1e;
+  color: white;
+}
+
+/* ===============================
+   TOP BAR
+================================= */
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.top-bar h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+#darkToggle {
+  border: none;
+  background: rgba(0,0,0,0.05);
+  padding: 8px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body.dark #darkToggle {
+  background: rgba(255,255,255,0.1);
+}
+
+/* ===============================
+   SUMMARY
+================================= */
+
+.summary {
+  margin-bottom: 20px;
+}
+
+.main-balance {
+  background: linear-gradient(135deg, #5f6af2, #8f94fb);
+  color: white;
+  padding: 22px;
+  border-radius: 25px;
+  text-align: center;
+  margin-bottom: 16px;
+  box-shadow: 0 15px 40px rgba(95,106,242,0.4);
+}
+
+.main-balance h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.mini-cards {
+  display: flex;
+  gap: 12px;
+}
+
+.card {
+  flex: 1;
+  padding: 16px;
+  border-radius: 20px;
+  background: white;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+body.dark .card {
+  background: #2b2b2b;
+}
+
+.income h3 { color: #2ecc71; }
+.expense h3 { color: #ff4d6d; }
+
+/* ===============================
+   FILTER
+================================= */
+
+#monthFilter {
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+body.dark #monthFilter {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: white;
+}
+
+/* ===============================
+   TRANSACTIONS
+================================= */
+
+ul {
+  list-style: none;
+  max-height: 230px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding-right: 5px;
+}
+
+ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+}
+
+body.dark ul::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+li {
+  background: #f7f7f7;
+  padding: 14px 16px;
+  border-radius: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+body.dark li {
+  background: #2b2b2b;
+}
+
+li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.income-text {
+  color: #2ecc71;
+  font-weight: 600;
+}
+
+.expense-text {
+  color: #ff4d6d;
+  font-weight: 600;
+}
+
+.delete-btn {
+  background: #ff4d6d;
+  border: none;
+  padding: 6px 9px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.delete-btn:hover {
+  background: #e63b5c;
+}
+
+/* ===============================
+   CHARTS
+================================= */
+
+canvas {
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   FAB
+================================= */
+
+.fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  font-size: 28px;
+  color: white;
+  background: linear-gradient(135deg, #5f6af2, #8f94fb);
+  cursor: pointer;
+  box-shadow: 0 15px 45px rgba(95,106,242,0.5);
+}
+
+.fab:hover {
+  transform: scale(1.1);
+}
+
+/* ===============================
+   MODAL
+================================= */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 22px;
+  width: 90%;
+  max-width: 350px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+body.dark .modal-content {
+  background: #1f1f1f;
+}
+
+.modal-content form {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.modal-content input,
+.modal-content select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+body.dark .modal-content input,
+body.dark .modal-content select {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: white;
+}
+
+.modal-content button {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #5f6af2;
+  color: white;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background: #4b55e6;
+}
+
+.close-btn {
+  background: #888;
+}
+
+
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.transaction .left {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction .category {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.transaction .meta {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.transaction .right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.transaction .income {
+  color: #2ecc71;
+}
+
+.transaction .expense {
+  color: #ff4d6d;
+}
+
+.delete-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#categoryChart {
+  width: 100% !important;
+  height: 100% !important;
+}
